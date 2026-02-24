@@ -1,11 +1,15 @@
-<div align="center">
+# Advanced Hybrid Water Simulation (Raw WebGL2)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Refactored the entire 3D rendering pipeline from Three.js to raw WebGL2 and GLSL. This provides lower-level control over the rendering process, improved performance, and a custom-built simulation engine.
 
-  <h1>Built with AI Studio</h2>
+## Architecture (IPO)
+- **Input**: User interaction (mouse/touch), configuration toggles (Ripple Damping, Strength, Radius).
+- **Process**: Custom WebGL2 renderer, vertex/fragment shaders for water surface and terrain, ping-pong framebuffer simulation for ripple physics.
+- **Output**: Real-time 3D water surface with dynamic ripples and procedural waves rendered directly via WebGL2.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
-
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+## Action List
+1. Implemented custom `WebGLRenderer`, `Camera`, and `OrbitControls` services.
+2. Migrated Three.js shaders to raw GLSL ES 3.00 (WebGL2).
+3. Replaced Three.js scene management with a custom rendering loop.
+4. Implemented GPGPU ripple simulation using raw WebGL2 framebuffers.
+5. Optimized geometry generation and buffer management.
